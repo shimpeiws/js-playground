@@ -1,0 +1,7 @@
+{
+  "presets": ["es2015", "stage-3", "react", "babel-preset-power-assert"],
+  "env": {
+    "development": {
+    }
+  }
+}
