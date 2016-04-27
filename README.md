@@ -2,6 +2,8 @@
 
 Test Environment for touch some js codes
 
+`npm install`
+
 ## Build
 
 `npm run build`
