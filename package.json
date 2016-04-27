@@ -9,11 +9,12 @@
   "scripts": {
     "build": "NODE_ENV=production browserify ./src/app.js -t babelify -t envify | uglifyjs -c warnings=false > ./public/build.js",
     "watch": "watchify -t babelify ./src/app.js -o ./public/build.js -v",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "immutable": "^3.8.1",
     "lodash": "^4.11.1",
     "moment": "^2.13.0",
     "react": "^15.0.1",
