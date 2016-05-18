@@ -1,0 +1,16 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "no-else-return": 0,
+    "semi": 0,
+    "radix": 0,
+  },
+  "ecmaFeatures": {
+    "modules": true
+  }
+}
