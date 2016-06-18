@@ -7,7 +7,7 @@ export const serverURI = `http://localhost:${serverPort}`
 
 export default {
   entry: {
-    issue: './src/react/entries/react.js',
+    selectBox: './src/react/entries/selectBox.js',
   },
 
   output: {
