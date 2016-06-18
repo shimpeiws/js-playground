@@ -10,7 +10,9 @@ class Main extends Component {
     return(
       <div styleName="base">
         <p>Original Main</p>
-        <SelectBox />
+        <SelectBox
+          items={ this.props.items }
+        />
       </div>
     )
   }
