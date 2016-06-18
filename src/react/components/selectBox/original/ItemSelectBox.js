@@ -18,6 +18,10 @@ class ItemSelectBox extends SelectBox {
   displayExtra(item) {
     return null
   }
+
+  searchItem(items, _text) {
+    return items
+  }
 }
 
 export default CSSModules(ItemSelectBox, styles)

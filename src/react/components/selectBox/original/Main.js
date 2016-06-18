@@ -23,7 +23,6 @@ class Main extends Component {
   }
 
   onSelectCompany(selectedCompanies) {
-    console.log("selectedComapnies", selectedCompanies)
     this.setState({ selectedCompanies })
   }
 
@@ -48,6 +47,7 @@ class Main extends Component {
               selectedItems={ this.state.selectedItems }
               onSelectItem={ this.onSelectItem.bind(this) }
               multipleSelect={true}
+              searchable={false}
             />
           ) : (null)
         }
@@ -60,6 +60,7 @@ class Main extends Component {
               selectedItems={ this.state.selectedCompanies }
               onSelectComapny={ this.onSelectCompany.bind(this) }
               multipleSelect={false}
+              searchable={true}
             />
           ) : (null)
         }

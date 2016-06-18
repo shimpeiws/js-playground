@@ -8,7 +8,6 @@ import styles from './SelectBox.scss'
 
 class CompanySelectBox extends SelectBox {
   onChange(companies) {
-    console.log("onChange")
     this.props.onSelectComapny(companies)
   }
 
@@ -18,6 +17,13 @@ class CompanySelectBox extends SelectBox {
 
   displayExtra(company) {
     return `(${company.country})`
+  }
+
+  searchItem(companies, text) {
+    let regexp = new RegExp(`(.*?)${text.toLowerCase()}(.*?)`)
+    return companies.filter((company) => {
+      return company.companyName.toLowerCase().search(regexp) !== -1
+    })
   }
 }
 

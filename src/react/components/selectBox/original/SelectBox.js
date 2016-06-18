@@ -6,6 +6,13 @@ import { List } from 'immutable'
 import styles from './SelectBox.scss'
 
 class SelectBox extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      visibleItems: this.props.items,
+    }
+  }
+
   onChange() {
     console.log('onchange must overwrite in sub class!!!')
   }
@@ -18,10 +25,12 @@ class SelectBox extends Component {
     console.log('displayExtra must overwrite in sub class!!!')
   }
 
+  searchItem(text) {
+    console.log('searchItem must overwrite in sub class!!!')
+  }
+
   onClickItem(item) {
     let resItems = this.props.selectedItems || new List()
-    console.log("selectedItems", this.props.selectedItems)
-    console.log("resItems", resItems)
     const isRemoving = this.isSelectedItem(item)
 
     if (isRemoving) {
@@ -45,13 +54,27 @@ class SelectBox extends Component {
     return this.props.selectedItems.includes(item)
   }
 
+  onSearchInputChange(e) {
+    const text = e.target.value
+    const visibleItems = this.searchItem(this.props.items, text)
+    this.setState({ visibleItems })
+  }
+
   render() {
     return(
       <div styleName="base">
         <div styleName="list-wrapper">
           <ul styleName="list">
             {
-              this.props.items.map((item) => {
+              this.props.searchable ? (
+                <input
+                  styleName="search-input"
+                  onChange={this.onSearchInputChange.bind(this)}
+                />
+              ) : (null)
+            }
+            {
+              this.state.visibleItems.map((item) => {
                 return (
                   <li
                     key={item.id}
