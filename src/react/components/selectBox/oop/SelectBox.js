@@ -1,9 +1,9 @@
 import React, {Component, PropTypes} from 'react'
 import CSSModules from 'react-css-modules'
 
-import styles from './Oop.scss'
+import styles from './SelectBox.scss'
 
-class Oop extends Component {
+class SelectBox extends Component {
   render() {
     return(
       <div styleName="base">
@@ -13,4 +13,4 @@ class Oop extends Component {
   }
 }
 
-export default CSSModules(Oop, styles)
+export default CSSModules(SelectBox, styles)
