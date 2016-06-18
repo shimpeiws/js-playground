@@ -4,11 +4,12 @@ import ReactDOM from 'react-dom'
 import { List } from 'immutable'
 
 import Item from './../lib/records/Item'
+import Company from './../lib/records/Company'
 
 import OriginalSelectBox from './../components/selectBox/original/Main'
 import OOPSelectBox from './../components/selectBox/oop/Main'
 
-const data = [
+const itemData = [
   {
     id: 1,
     name: 'kohh',
@@ -52,7 +53,39 @@ const data = [
 ]
 
 const items = List.of(
-  ...(data.map((item) => { return Item.fromJS(item) }))
+  ...(itemData.map((item) => { return Item.fromJS(item) }))
+)
+
+const companyData = [
+  {
+    id: 1,
+    companyName: 'Gunsmith Production',
+    country: 'UK',
+  },
+  {
+    id: 2,
+    companyName: 'SYOWA',
+    country: 'US',
+  },
+  {
+    id: 3,
+    companyName: 'YUKICHI RECORDS',
+    country: 'JP',
+  },
+  {
+    id: 4,
+    companyName: 'POLYDOR',
+    country: 'ID',
+  },
+  {
+    id: 5,
+    companyName: 'New Japan Records',
+    country: 'CH',
+  },
+]
+
+const companies = List.of(
+  ...(companyData.map((company) => { return Company.fromJS(company) }))
 )
 
 ReactDOM.render(
@@ -60,6 +93,7 @@ ReactDOM.render(
     <div>
       <OriginalSelectBox
         items = { items }
+        companies = { companies }
       />
       <OOPSelectBox
         items = { items }

@@ -8,8 +8,15 @@ import styles from './SelectBox.scss'
 
 class ItemSelectBox extends SelectBox {
   onChange(items) {
-    console.log("ItemSelectBox", ItemSelectBox)
     this.props.onSelectItem(items)
+  }
+
+  displayName(item) {
+    return item.name
+  }
+
+  displayExtra(item) {
+    return null
   }
 }
 

@@ -10,8 +10,18 @@ class SelectBox extends Component {
     console.log('onchange must overwrite in sub class!!!')
   }
 
+  displayName(item) {
+    console.log('displayName must overwrite in sub class!!!')
+  }
+
+  displayExtra(item) {
+    console.log('displayExtra must overwrite in sub class!!!')
+  }
+
   onClickItem(item) {
     let resItems = this.props.selectedItems || new List()
+    console.log("selectedItems", this.props.selectedItems)
+    console.log("resItems", resItems)
     const isRemoving = this.isSelectedItem(item)
 
     if (isRemoving) {
@@ -21,7 +31,11 @@ class SelectBox extends Component {
         })
       )
     } else {
-      resItems = resItems.push(item)
+      if (this.props.multipleSelect) {
+        resItems = resItems.push(item)
+      } else {
+        resItems = List.of(item)
+      }
     }
 
     this.onChange(resItems)
@@ -32,7 +46,6 @@ class SelectBox extends Component {
   }
 
   render() {
-    console.log("this.props.selectedItems", this.props.selectedItems)
     return(
       <div styleName="base">
         <div styleName="list-wrapper">
@@ -45,7 +58,10 @@ class SelectBox extends Component {
                     styleName="row"
                     onClick={this.onClickItem.bind(this, item)}
                   >
-                    <div styleName="row-name">{ item.name }</div>
+                    <div styleName="row-name">
+                      { this.displayName(item) }
+                      { this.displayExtra(item) }
+                    </div>
                     { this.isSelectedItem(item) ? (
                         <div styleName="row-selected">
                           selected
