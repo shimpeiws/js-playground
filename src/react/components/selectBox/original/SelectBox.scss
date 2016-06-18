@@ -1,3 +1,31 @@
 .base {
   margin: 10px;
 }
+
+.list-wrapper {
+  width: 480px;
+}
+
+.list {
+  list-style: none;
+}
+
+.row {
+  padding: 10px;
+  font-size: 16px;
+  background: LightGray;
+  border-bottom: 1px solid DarkGray;
+  &:hover {
+    color: black;
+    background: white;
+  }
+}
+
+.row-name {
+  padding-left: 10px;
+}
+
+.row-selected {
+  float: right;
+  margin-top: -23px;
+}
