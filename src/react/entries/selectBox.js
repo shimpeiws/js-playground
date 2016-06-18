@@ -52,7 +52,7 @@ const data = [
 ]
 
 const items = List.of(
-  data.map((item) => { return Item.fromJS(item) })
+  ...(data.map((item) => { return Item.fromJS(item) }))
 )
 
 ReactDOM.render(

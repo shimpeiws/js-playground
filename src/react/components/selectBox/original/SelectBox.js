@@ -7,7 +7,11 @@ class SelectBox extends Component {
   render() {
     return(
       <div styleName="base">
-        <p>Hello Original!!!</p>
+        {
+          this.props.items.map((item) => {
+            return (<p key={item.id}>{ item.name }</p>)
+          })
+        }
       </div>
     )
   }
