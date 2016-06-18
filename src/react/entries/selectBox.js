@@ -1,8 +1,14 @@
 import React from 'react'
 import ReactDOM from "react-dom"
-import OOPSelectBox from "./../components/selectBox/Oop/Main"
+import OriginalSelectBox from "./../components/selectBox/original/Main"
+import OOPSelectBox from "./../components/selectBox/oop/Main"
 
 ReactDOM.render(
-  <OOPSelectBox />,
+  (
+    <div>
+      <OriginalSelectBox />
+      <OOPSelectBox />
+    </div>
+  ),
   document.getElementById('content')
 );
