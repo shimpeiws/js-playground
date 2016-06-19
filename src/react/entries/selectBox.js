@@ -8,6 +8,7 @@ import Company from './../lib/records/Company'
 
 import OriginalSelectBox from './../components/selectBox/original/Main'
 import OOPSelectBox from './../components/selectBox/oop/Main'
+import HoCsSelectBox from './../components/selectBox/hocs/Main'
 
 const itemData = [
   {
@@ -96,6 +97,10 @@ ReactDOM.render(
         companies = { companies }
       />
       <OOPSelectBox
+        items = { items }
+        companies = { companies }
+      />
+      <HoCsSelectBox
         items = { items }
         companies = { companies }
       />
