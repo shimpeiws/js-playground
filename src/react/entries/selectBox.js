@@ -97,6 +97,7 @@ ReactDOM.render(
       />
       <OOPSelectBox
         items = { items }
+        companies = { companies }
       />
     </div>
   ),

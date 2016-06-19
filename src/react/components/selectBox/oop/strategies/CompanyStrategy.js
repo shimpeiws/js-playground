@@ -6,7 +6,7 @@ import CompanyData from './../data/Company'
 
 export default class ProjectStrategy extends SelectBoxStrategy {
   canMultipleSelect() {
-    return true
+    return false
   }
 
   toItemData(item) {
@@ -23,8 +23,9 @@ export default class ProjectStrategy extends SelectBoxStrategy {
       <CompanyRow
         key={item.id}
         name={item.name}
+        country={item.country}
         selected={selected}
-        onClick={this.onClickItem.bind(selectBox, item)}
+        onClick={this.onClickItem.bind(this, selectBox, item)}
       />
     )
   }

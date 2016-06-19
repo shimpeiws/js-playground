@@ -11,13 +11,13 @@ class CompanyRow extends Component {
   render() {
     return (
       <li
-        styleName={focused ? "base-focused" : "base"}
         onClick={this.onClick.bind(this)}
+        styleName="row"
       >
-        <div styleName="inner">
+        <div styleName="row-name">
           <span>{ `${this.props.name}(${this.props.country})` }</span>
         </div>
-        <div styleName="inner-right">
+        <div styleName="row-selected">
           {this.props.selected ? <div>selected</div> : null}
         </div>
       </li>

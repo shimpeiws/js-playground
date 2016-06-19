@@ -51,6 +51,18 @@ class Main extends Component {
             />
           ) : (null)
         }
+        <div onClick={this.onClickCompanySelectBoxWrapper.bind(this)}>
+          CompanySelectBox
+        </div>
+        { this.state.isCompanySelectBoxOpen ? (
+            <SelectBox
+              items={ this.props.companies }
+              selectedItems={ this.state.selectedCompanies }
+              onChange={ this.onSelectCompany.bind(this) }
+              strategy={ new CompanyStrategy() }
+            />
+          ) : (null)
+        }
       </div>
     )
   }
