@@ -12,12 +12,18 @@ class ItemRow extends Component {
     return (
       <li
         onClick={this.onClick.bind(this)}
+        styleName="row"
       >
-        <div>
+        <div styleName="row-name">
           <span>{ this.props.name }</span>
         </div>
         <div>
-          {this.props.selected ? <div>selected</div> : null}
+          {this.props.selected ? (
+            <div styleName="row-selected">
+              selected
+            </div>
+            ) : (null)
+          }
         </div>
       </li>
     )

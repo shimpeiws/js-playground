@@ -19,7 +19,7 @@ class SelectBox extends Component {
   }
 
   isSelectedItem(item) {
-    return this.props.selectedItems.includes(item)
+    return this.props.selectedItems.includes(item.original)
   }
 
   onChange(items) {

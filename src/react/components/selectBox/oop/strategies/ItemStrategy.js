@@ -6,7 +6,7 @@ import ItemData from './../data/Item'
 
 export default class ProjectStrategy extends SelectBoxStrategy {
   canMultipleSelect() {
-    return false
+    return true
   }
 
   toItemData(item) {
