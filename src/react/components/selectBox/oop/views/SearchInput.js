@@ -19,6 +19,7 @@ class SearchInput extends Component {
           name="title"
           value={this.props.searchText}
           onChange={this.onSearchTextChange.bind(this)}
+          styleName="search-input"
         />
       </li>
     )

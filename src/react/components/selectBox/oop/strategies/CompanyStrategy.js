@@ -4,9 +4,15 @@ import CompanyRow from './../views/CompanyRow'
 import SelectBoxStrategy from './SelectBoxStrategy'
 import CompanyData from './../data/Company'
 
+import { createSearchItemsPlugin } from './../plugins/SearchItemsPlugin'
+
 export default class ProjectStrategy extends SelectBoxStrategy {
+  initializePlugin() {
+    this.addPlugin(createSearchItemsPlugin())
+  }
+
   canMultipleSelect() {
-    return false
+    return true
   }
 
   toItemData(item) {

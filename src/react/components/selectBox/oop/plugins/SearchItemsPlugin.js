@@ -1,4 +1,4 @@
-import _ from '../../../../shims/underscore'
+import _ from 'lodash'
 import { List } from 'immutable'
 import React from 'react'
 
@@ -6,15 +6,9 @@ import SearchInput from './../views/SearchInput'
 import SelectBoxPlugin from './SelectBoxPlugin'
 
 export default class SearchItemsPlugin extends SelectBoxPlugin {
-
-  constructor(plugin, placeHolderText) {
-    super(plugin)
-    this.placeHolderText = placeHolderText
-  }
-
   filterItems(items, conditions) {
     return this.plugin.filterItems(items, conditions).filter((item) => {
-      return item.isPlugin() || item.isMatchedText(conditions.searchText)
+      return item.isMatchedText(conditions.searchText)
     })
   }
 
@@ -25,7 +19,9 @@ export default class SearchItemsPlugin extends SelectBoxPlugin {
   }
 
   createHeaders(selectBox) {
-    return this.plugin.createHeaders(selectBox).insert(0, this.renderInput(selectBox))
+    return this.plugin
+      .createHeaders(selectBox)
+      .insert(0, this.renderInput(selectBox))
   }
 
   onSearchTextChange(selectBox, searchText) {
@@ -46,5 +42,11 @@ export default class SearchItemsPlugin extends SelectBoxPlugin {
 export function createSearchItemsPlugin(placeHolderText) {
   return (plugin) => {
     return new SearchItemsPlugin(plugin, placeHolderText)
+  }
+}
+
+export function createSearchItemsPlugin() {
+  return (plugin) => {
+    return new SearchItemsPlugin(plugin)
   }
 }

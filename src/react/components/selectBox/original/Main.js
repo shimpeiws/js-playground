@@ -46,7 +46,7 @@ class Main extends Component {
               items={ this.props.items }
               selectedItems={ this.state.selectedItems }
               onSelectItem={ this.onSelectItem.bind(this) }
-              multipleSelect={true}
+              multipleSelect={false}
               searchable={false}
             />
           ) : (null)
@@ -59,7 +59,7 @@ class Main extends Component {
               items={ this.props.companies }
               selectedItems={ this.state.selectedCompanies }
               onSelectComapny={ this.onSelectCompany.bind(this) }
-              multipleSelect={false}
+              multipleSelect={true}
               searchable={true}
             />
           ) : (null)

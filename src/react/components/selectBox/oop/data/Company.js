@@ -12,7 +12,7 @@ export default class Company extends Data {
   }
 
   isMatchedText(searchText) {
-    return this.matchedByText(this.companyName, searchText)
+    return this.matchedByText(this.name, searchText)
   }
 
   refName() {
