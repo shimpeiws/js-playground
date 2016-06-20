@@ -1,6 +1,7 @@
 {
-  "presets": ["es2015", "stage-3", "react"],
+  "presets": ["es2015", "stage-0", "react"],
   "plugins": [
+    ["transform-decorators-legacy"],
     ["react-transform", {
       "transforms": [{
         "transform": "react-transform-hmr",
