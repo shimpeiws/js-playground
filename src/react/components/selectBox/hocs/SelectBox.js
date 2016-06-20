@@ -59,6 +59,12 @@ class SelectBox extends Component {
     this.props.onSelectItem(resItems)
   }
 
+  visibleItems(items) {
+    if (!this.props.filterItems) { return items }
+
+    return this.props.filterItems(items)
+  }
+
   render() {
     return(
       <div styleName="base">
@@ -68,7 +74,7 @@ class SelectBox extends Component {
               this.props.renderHeader()
             }
             {
-              this.state.visibleItems.map((item) => {
+              this.visibleItems(this.state.visibleItems).map((item) => {
                 return this.props.renderRow(this, item, this.isSelectedItem(item))
               })
             }
