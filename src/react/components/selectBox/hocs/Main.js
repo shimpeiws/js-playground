@@ -4,6 +4,7 @@ import { List } from 'immutable'
 
 import SelectBox from './SelectBox'
 import { ItemEnhancer } from './enhancers/ItemEnhancer'
+import { CompanyEnhancer } from './enhancers/CompanyEnhancer'
 
 import styles from './Main.scss'
 
@@ -36,6 +37,7 @@ class Main extends Component {
 
   render() {
     const ItemSelectBox = ItemEnhancer(SelectBox)
+    const CompanySelectBox = CompanyEnhancer(SelectBox)
     return(
       <div styleName="base">
         <p>HoCs Main</p>
@@ -54,7 +56,11 @@ class Main extends Component {
           ComapnySelectBox
         </div>
         { this.state.isCompanySelectBoxOpen ? (
-            null
+          <CompanySelectBox
+            items={ this.props.companies }
+            selectedItems={ this.state.selectedCompanies }
+            onSelectItem={ this.onSelectCompany.bind(this) }
+          />
           ) : (null)
         }
       </div>

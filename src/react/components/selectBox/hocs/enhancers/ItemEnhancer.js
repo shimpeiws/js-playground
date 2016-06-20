@@ -9,17 +9,17 @@ export const ItemEnhancer = ComposedComponent => class extends Component {
     return null
   }
 
-  renderRow(item) {
+  renderRow(selectBox, item, selected) {
     return (
       <li
-        onClick={this.onClick.bind(this)}
+        onClick={selectBox.onClick.bind(selectBox, item)}
         styleName="row"
       >
         <div styleName="row-name">
           <span>{ item.name }</span>
         </div>
         <div>
-          {this.isSelectedItem(item) ? (
+          {selected ? (
             <div styleName="row-selected">
               selected
             </div>

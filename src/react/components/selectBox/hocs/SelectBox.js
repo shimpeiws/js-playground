@@ -38,9 +38,28 @@ class SelectBox extends Component {
     return this.props.selectedItems.includes(item)
   }
 
+  onClick(item) {
+    let resItems = this.props.selectedItems || new List()
+    const isRemoving = this.isSelectedItem(item)
+
+    if (isRemoving) {
+      resItems = resItems.delete(
+        resItems.findIndex((resItem) => {
+          return resItem.id === item.id
+        })
+      )
+    } else {
+      if (this.props.canMultipleSelect()) {
+        resItems = resItems.push(item)
+      } else {
+        resItems = List.of(item)
+      }
+    }
+
+    this.props.onSelectItem(resItems)
+  }
+
   render() {
-    // debugger;
-    console.log("render in SelectBox", this.props)
     return(
       <div styleName="base">
         <div styleName="list-wrapper">
@@ -50,7 +69,7 @@ class SelectBox extends Component {
             }
             {
               this.state.visibleItems.map((item) => {
-                return this.props.renderRow.bind(this, item)
+                return this.props.renderRow(this, item, this.isSelectedItem(item))
               })
             }
           </ul>
