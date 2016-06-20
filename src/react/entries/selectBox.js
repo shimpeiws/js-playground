@@ -9,6 +9,7 @@ import Company from './../lib/records/Company'
 import OriginalSelectBox from './../components/selectBox/original/Main'
 import OOPSelectBox from './../components/selectBox/oop/Main'
 import HoCsSelectBox from './../components/selectBox/hocs/Main'
+import DecoratorSelectBox from './../components/selectBox/decorator/Main'
 
 const itemData = [
   {
@@ -101,6 +102,10 @@ ReactDOM.render(
         companies = { companies }
       />
       <HoCsSelectBox
+        items = { items }
+        companies = { companies }
+      />
+      <DecoratorSelectBox
         items = { items }
         companies = { companies }
       />
