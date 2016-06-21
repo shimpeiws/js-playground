@@ -8,7 +8,8 @@ import styles from './SelectBox.scss'
 
 class SelectBox extends Component {
   static contextTypes = {
-    renderRow: React.PropTypes.any
+    renderRow: React.PropTypes.any,
+    canMultipleSelect: React.PropTypes.any,
   }
 
   constructor(props) {
@@ -18,15 +19,43 @@ class SelectBox extends Component {
     }
   }
 
+  isSelectedItem(item) {
+    return this.props.selectedItems.includes(item)
+  }
+
+  onClick(item) {
+    let resItems = this.props.selectedItems || new List()
+    const isRemoving = this.isSelectedItem(item)
+
+    if (isRemoving) {
+      resItems = resItems.delete(
+        resItems.findIndex((resItem) => {
+          return resItem.id === item.id
+        })
+      )
+    } else {
+      if (this.context.canMultipleSelect()) {
+        resItems = resItems.push(item)
+      } else {
+        resItems = List.of(item)
+      }
+    }
+
+    this.props.onSelectItem(resItems)
+  }
+
   render() {
-    console.log("selectbox render", this.context)
     return(
       <div styleName="base">
         <div styleName="list-wrapper">
           <ul styleName="list">
             {
               this.props.items.map((item) => {
-                return this.context.renderRow()
+                return this.context.renderRow(
+                  item,
+                  this.isSelectedItem(item),
+                  this.onClick.bind(this)
+                )
               })
             }
           </ul>

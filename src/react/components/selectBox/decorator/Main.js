@@ -41,7 +41,13 @@ class Main extends Component {
           ItemSelectBox
         </div>
         { this.state.isItemSelectBoxOpen ? (
-          <div><ItemSelectBox /></div>
+          <div>
+            <ItemSelectBox
+              items={ this.props.items }
+              selectedItems={ this.state.selectedItems }
+              onSelectItem={this.onSelectItem.bind(this)}
+            />
+          </div>
           ) : (null)
         }
         <div onClick={this.onClickCompanySelectBoxWrapper.bind(this)}>
